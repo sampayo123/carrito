@@ -9,9 +9,6 @@ if(isset($_POST['btnRegistro'])){
     $passd=md5($pass);
 
 
-
-    
-
      //saniamiento y limpieza de la id
    //   if(empty($idRol)){
      
@@ -85,8 +82,8 @@ if(isset($_POST['btnRegistro'])){
 
         
     if($result=== TRUE){
-      header('location: login.php');
-      echo 'usuario creado';
+   //   header('location: login.php');
+      
        
          }
         
