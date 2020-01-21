@@ -5,7 +5,6 @@ include '../global/config.php';
 include '../global/conexion.php';
 
 
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,19 +40,29 @@ include '../global/conexion.php';
                         <div class="form-group">
                             <div class="col-md-12 text-center">
                                  <button type="submit" class="btn btn-primary" name="btnRegistro">Crear usuario</button><br>
-                                 <a href="login.php">Login</a>
+                               
+                                 <a href="login.php">iniciar sesión</a>
                             </div>
                         </div>
-
+                        <?php $mostrar="";
+                                ?>
+                              
+                              
                         <?php if(!isset($_POST['btnRegistro'])){?>
+                          
+                        <?php }else{  
+                           $color="danger";
+                            if($mostrar="Usuario creado"){  $color="success";}
 
-                        <?php }else{?>
-                        <div  class="alert alert-danger " role="alert">
+                            
+                            ?>
+                        <div  class="alert alert-<?php echo $color?>" role="alert">
                         <div class="col-md-6">
                         <?php include '../global/validacion.php '; ?>     
                         </div>         
                               </div>
                               <?php }?>
+                             
                     </fieldset>
                 </form>
             </div>

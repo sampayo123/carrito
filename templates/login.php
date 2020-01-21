@@ -85,6 +85,7 @@ if($passd==$results['password']){
                 <input type="password" id="idContraseña" class="form-control" placeholder="Contraseña" name="contraseña" required>                
 					  </div>
 				</div>
+       
         <a href="registro.php">Registro</a>
 				<div class="col-sm-2">
 					 <div class="form-group">
