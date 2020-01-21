@@ -97,6 +97,39 @@ if(isset($_POST['btnAdd'])){
                 }
         
         break;
+        case "Aprobar": 
+
+
+            if($_POST['idVenta']){
+                $ID=$_POST['idVenta'];
+
+                $estatus='Aprobado';
+                             
+                              
+                                    $sentencia= $pdo->prepare(" UPDATE ventas SET estatus = :estatus
+                                    WHERE ventas.id = :id");
+
+                                    $sentencia->bindParam(":id",$ID);
+                                    $sentencia->bindParam(":estatus", $estatus);
+        
+                                
+                                $sentencia->execute();
+                                }
+                               
+
+                            break;
+  
+           
+
+
+// $sentencia->bindParam(":claveTransaccion",$ID);
+// $sentencia->bindParam(":correo",$correo);
+// $sentencia->bindParam(":total", $total);
+
+
+           
+        
+          //  echo "<script>alert('aprobado...')</script>";
     }
 }
 

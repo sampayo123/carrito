@@ -10,7 +10,8 @@ include 'templates/cabecera.php';
 
 // $consult=$pdo->prepare('SELECT * FROM ventas');
 
-$consult=$pdo->prepare('SELECT * FROM ventas');
+$consult=$pdo->prepare('select idVenta, nombre, fecha, correo, total, idProducto,estatus from
+ detalleventas dv inner join ventas v on dv.idVenta=v.id INNER JOIN productos p on p.id=dv.idProducto');
 
 $consult->execute();
 
@@ -52,8 +53,9 @@ $results=$consult->fetchAll(PDO::FETCH_ASSOC);
     <tr>
       <th width="40%" class="text-center">Descripcion</th>
       <th width="15%" class="text-center">Correo</th>
-      <th width="20%" class="text-center">Fecha</th>
+      <th width="20%" class="text-center">Fecha de compra</th>
       <th width="20%" class="text-center">Pago</th>
+      <th width="5%" class="text-center">Id Producto</th>
       <th width="5%" class="text-center">--</th>
     </tr>
   </thead>
@@ -61,22 +63,31 @@ $results=$consult->fetchAll(PDO::FETCH_ASSOC);
     <tr>
   
     <?php foreach($results as $producto){ ?>
-        <th width="40%" class="text-center"><?php echo "u" ?></th>
+        <th width="40%" class="text-center"><?php echo $producto['nombre']  ?></th>
     <th width="40%" class="text-center"><?php echo $producto['correo'] ?></th>
       <th width="15%" class="text-center"><?php echo $producto['fecha'] ?></th>
       <th width="20%" class="text-center"><?php echo $producto['total'] ?></th>
-
+      <th width="20%" class="text-center"><?php echo $producto['idProducto'] ?></th>
        <th width="5%">
 
        <form action="" method="post" id="formEliminar">
-       <input type="hidden" name="id" id="id" value="<?php echo $results['id']; ?>">
-     
+       <input type="hidden" name="idVenta" id="id" value="<?php echo $producto['idVenta']; ?>">
+     <?php if($producto['estatus']!='Aprobado'){ ?>
        <button class="btn btn-danger"
                 name="btnAdd"
-                value="Eliminar"
+                value="Aprobar"
                 type="submit" 
-                onclick="return ConfirmarDelete() ">Eliminar</button>
-      
+                onclick="return ConfirmarDelete() ">Pendiente</button>
+
+     <?php } else{ ?>
+
+      <button class="btn btn-success"disabled
+                name="btnAdd"
+                value="Aprobar"
+                type="submit" 
+                ">Aprobado</button>
+
+                <?php } ?>
        </form>
       </th>    
     </tr>
@@ -93,7 +104,7 @@ $results=$consult->fetchAll(PDO::FETCH_ASSOC);
 <script type="text/javascript">
 
 function ConfirmarDelete(){
-    var respuesta= confirm("¿Seguro que desea eliminar?");
+    var respuesta= confirm("¿La tranferencia fue verificada?");
 
     if(respuesta==true)
     {
