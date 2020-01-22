@@ -34,7 +34,7 @@ if(isset($_SESSION['user_id'])){
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand">Inicio</a>
+    <a class="navbar-brand" href="index.php">Inicio</a>
     </button>
     <div id="my-nav">
         <ul class="navbar-nav mr-auto">

@@ -13,6 +13,8 @@ include 'templates/cabecera.php';
 
 
     <br>
+
+    <h3 align=center>Bienvenido, <?php echo $_SESSION['user_id']?></h3>
     <?php if(!empty($msj)){ ?>
     <div class="alert alert-success">
     

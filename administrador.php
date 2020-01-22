@@ -5,7 +5,7 @@ include 'global/config.php';
 include 'global/conexion.php';
 include './carrito.php';
 include 'templates/cabecera.php';
-
+$usuario= $_POST['usuario'];
 
 
 // $consult=$pdo->prepare('SELECT * FROM ventas');
@@ -32,12 +32,12 @@ $results=$consult->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand">Inicio</a>
+    <a class="navbar-brand"  href="administrador.php">Inicio</a>
     </button>
     <div id="my-nav">
         <ul class="navbar-nav mr-auto">
             <li  class="nav-item active">
-            <a class="nav-link" href="#">Ventas</a>
+            <a class="nav-link" href="administrador.php">Ventas</a>
             </li>
             <li  class="nav-item active">
             <a class="nav-link" href="./login/salir.php">Salir</a>
@@ -46,7 +46,9 @@ $results=$consult->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </nav>
 <br>
-<h3>Ventas</h3>
+<h3>Bienvenido, <?php echo $_SESSION['user_id']?></h3>
+
+<h3 align=center>Ventas</h3>
 
 <table class="table table-bordered">
   <thead>
