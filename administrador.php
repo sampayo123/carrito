@@ -10,7 +10,7 @@ include 'templates/cabecera.php';
 
 // $consult=$pdo->prepare('SELECT * FROM ventas');
 
-$consult=$pdo->prepare('select idVenta, nombre, fecha, correo, total, idProducto,estatus from
+$consult=$pdo->prepare('select idVenta, nombre, fecha, correo, precioUnitario, idProducto,estatus from
  detalleventas dv inner join ventas v on dv.idVenta=v.id INNER JOIN productos p on p.id=dv.idProducto');
 
 $consult->execute();
@@ -66,7 +66,7 @@ $results=$consult->fetchAll(PDO::FETCH_ASSOC);
         <th width="40%" class="text-center"><?php echo $producto['nombre']  ?></th>
     <th width="40%" class="text-center"><?php echo $producto['correo'] ?></th>
       <th width="15%" class="text-center"><?php echo $producto['fecha'] ?></th>
-      <th width="20%" class="text-center"><?php echo $producto['total'] ?></th>
+      <th width="20%" class="text-center"><?php echo $producto['precioUnitario'] ?></th>
       <th width="20%" class="text-center"><?php echo $producto['idProducto'] ?></th>
        <th width="5%">
 

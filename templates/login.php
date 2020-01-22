@@ -66,7 +66,7 @@ if($passd==$results['password']){
 	<div class="row mt-3 ">
 		<div class="col-sm-6 mt-2">
     <a>
-          <img src="..\src\png\iconGuitarra.png" width="50xp" height="50px" alt=""><p class="text-info">Musica</p>
+          <img src="..\src\png\iconGuitarra.png" width="50xp" height="50px" alt=""><p class="text-info">TuGuitarra</p>
         </a>
 		</div>
 		<div class="col-sm-6 hidden-xs mt-4">
@@ -75,7 +75,7 @@ if($passd==$results['password']){
 				<div class="col-sm-5">
 					  <div class="form-group">
                 <input type="text" id="idcedula" class="form-control" placeholder="Usuario" name="usuario" required
-                 autofocus>
+                 autofocus><a href="registro.php">Registro</a>
 					    <div class="login-bottom-text checkbox hidden-sm">
 						  </div>
 					  </div>
@@ -83,14 +83,14 @@ if($passd==$results['password']){
 				<div class="col-sm-5">
 					 <div class="form-group">
                 <input type="password" id="idContraseña" class="form-control" placeholder="Contraseña" name="contraseña" required>                
-					  </div>
+            </div>
 				</div>
-       
-        <a href="registro.php">Registro</a>
 				<div class="col-sm-2">
 					 <div class="form-group">
            <button type="submit" class="btn btn-primary" name="btn">Entrar</button></div>
+      
         </div>
+
       <?php  include '../global/validacion.php';?>
       </div>	
       <?php 
